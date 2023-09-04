@@ -1,4 +1,7 @@
+from matplotlib import pyplot as plt
+
 number_in_the_group = int(input())
+
 
 with open("laba1.txt", 'r') as read_data:  #read_data - ссылка на файл
     scanned_numbers = list(map(int, read_data.readlines())) #создание массива считанных данных
@@ -22,7 +25,15 @@ grouped_values = [0 for _ in range(max_grouped_value)]
 for grouped_number in grouped_numbers:
     grouped_values[grouped_number] += 1
 
+axis_x = []
 
 for i, value in enumerate(grouped_values):
     
+    axis_x.append(i)
+    
     print(i , grouped_values[i])
+    
+    
+bar = plt.bar(axis_x, grouped_values)
+
+plt.show()

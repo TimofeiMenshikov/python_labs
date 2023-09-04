@@ -1,4 +1,4 @@
-
+from matplotlib import pyplot as plt
 
 with open("laba1.txt", 'r') as read_data:  #read_data - ссылка на файл
     scanned_numbers = list(map(int, read_data.readlines())) #создание массива считанных данных
@@ -11,11 +11,16 @@ with open("laba1.txt", 'r') as read_data:  #read_data - ссылка на фай
         values[scanned_number] += 1      #обращаемся к ячейке массива и увеличиваем на 1 кол-во встречаемых чисел, равных данному        
     
     
-for i, value in enumerate(grouped_values):
+axis_x = []    
     
-    print(i , grouped_values[i])
+for i, value in enumerate(values):
+    
+    axis_x.append(i)
+    
+    print(i , values[i])
     
     
-    
+bar = plt.bar(axis_x, values)
 
+plt.show()
 
